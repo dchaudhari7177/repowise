@@ -260,6 +260,12 @@ def test_class_a_global_asax_inherits_is_a_root(tmp_path: Path) -> None:
     assert "Global.asax.cs" in roots
 
 
+def test_single_quoted_inherits_is_a_root(tmp_path: Path) -> None:
+    markup = "<%@ Application Codebehind='Global.asax.cs' Inherits='Sample.MvcApplication' %>\n"
+    roots = _roots(tmp_path, {"Global.asax": markup, "Global.asax.cs": GLOBAL_ASAX_CS})
+    assert "Global.asax.cs" in roots
+
+
 def test_markup_names_the_class_by_namespace(tmp_path: Path) -> None:
     # Same bare name in another namespace: only the one the markup names roots.
     other = "namespace Other\n{\n    public class MvcApplication { }\n}\n"

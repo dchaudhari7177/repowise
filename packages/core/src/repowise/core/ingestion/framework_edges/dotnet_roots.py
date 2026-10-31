@@ -113,7 +113,7 @@ _DIRECTIVE_HEAD_CHARS = 512
 #: directive that names the class behind it.
 _MARKUP_FILES = ("*.asax", "*.aspx", "*.ascx", "*.ashx", "*.asmx", "*.master")
 _MARKUP_CLASS_RE = re.compile(
-    r'<%@\s*\w+\b[^%]*?\b(?:Inherits|Class)\s*=\s*"([\w.]+)"', re.IGNORECASE
+    r"""<%@\s*\w+\b[^%]*?\b(?:Inherits|Class)\s*=\s*["']([\w.]+)["']""", re.IGNORECASE
 )
 #: Controllers the System.Web routing discovers by name.
 _CLASSIC_CONTROLLER_NAMESPACES = ("System.Web.Mvc", "System.Web.Http")
